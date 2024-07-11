@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 
-import Header from "./Header.jsx";
+import Header from "./components/layouts/header.jsx";
+import Footer from "./components/layouts/footer.jsx";
 import { getActivities, archiveAllActivities } from "./api/index.mjs";
 import ArchiveAllButton from "./components/archive-all-button.jsx";
 import ActivityFeed from "./pages/Feed.jsx";
+import { toast, ToastContainer } from "react-toastify";
 
 const App = () => {
   /**
@@ -27,18 +29,19 @@ const App = () => {
         setActivities(filtered);
         setVia(1);
       })
-      .catch((err) => {
-        console.error(err);
+      .catch(() => {
+        toast.error("Failed to fetch activities");
       });
   }, []);
 
   const onArchiveAllCalls = () => {
+    if (activities.length < 1) return;
     archiveAllActivities(via)
       .then(() => {
         setActivities([]);
       })
-      .catch((err) => {
-        console.error(err);
+      .catch(() => {
+        toast.error("Failed to archive activities");
       });
   };
 
@@ -47,10 +50,15 @@ const App = () => {
       <Header />
       <div className="container-view">
         <div className="flex flex-col gap-y-2">
-          <ArchiveAllButton onClick={() => onArchiveAllCalls()} />
+          <ArchiveAllButton
+            onClick={() => onArchiveAllCalls()}
+            disabled={activities.length < 1}
+          />
           <ActivityFeed activities={activities} />
         </div>
       </div>
+      <ToastContainer />
+      <Footer />
     </div>
   );
 };
