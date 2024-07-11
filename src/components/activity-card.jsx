@@ -31,7 +31,7 @@ export default function ActivityCard({ activity }) {
         <div className="col-start-2 col-span-3">
           <p className="font-bold">{activity.from}</p>
           <p className="text-xs text-gray-500">
-            Outgoing call from {activity.from}
+            Outgoing call to {activity.from}
           </p>
         </div>
         <div className="col-end-13 mt-2 text-xs text-gray-600">
