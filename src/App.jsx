@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import ReactDOM from "react-dom";
 
 import Header from "./Header.jsx";
 import { getActivities, activitySchema } from "./api/index.mjs";
@@ -33,7 +32,5 @@ const App = () => {
     </div>
   );
 };
-
-ReactDOM.render(<App />, document.getElementById("app"));
 
 export default App;

@@ -8,27 +8,41 @@
   "license": "",
   "private": false,
   "scripts": {
-    "start": "webpack-dev-server --mode development --open",
-    "build": "webpack --mode production"
+    "start": "webpack-dev-server --config webpack.dev.config.js --open",
+    "build": "webpack --config webpack.prod.config.js"
   },
   "dependencies": {
     "axios": "^1.7.2",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-icons": "^5.2.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-icons": "5.2.1",
+    "react-router-dom": "^5.2.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "@babel/preset-react": "^7.0.0",
-    "babel-loader": "8.1.0",
-    "css-loader": "2.1.*",
-    "html-loader": "0.5.*",
-    "html-webpack-plugin": "3.2.*",
-    "style-loader": "0.23.*",
-    "webpack": "4.29.*",
-    "webpack-cli": "3.2.*",
-    "webpack-dev-server": "3.1.*"
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "autoprefixer": "^9.8.6",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "core-js": "3",
+    "css-loader": "^4.2.0",
+    "cssnano": "^4.1.10",
+    "cssnext": "^1.8.4",
+    "html-webpack-plugin": "^4.3.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-import": "^12.0.1",
+    "postcss-loader": "^3.0.0",
+    "purgecss-webpack-plugin": "^2.3.0",
+    "react-hot-loader": "^4.12.21",
+    "style-loader": "^1.2.1",
+    "tailwindcss": "^1.6.2",
+    "terser-webpack-plugin": "^4.0.0",
+    "webpack": "^4.29.*",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   }
 }
