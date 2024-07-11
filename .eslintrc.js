@@ -19,7 +19,7 @@ module.exports = {
   extends: ["semistandard", "eslint:recommended", "plugin:react/recommended"],
   rules: {
     "comma-dangle": "off",
-    quotes: [2, "double"],
+    quotes: [2, "double", "backtick"],
     "react/prop-types": "off",
     "space-before-function-paren": "off",
   },
