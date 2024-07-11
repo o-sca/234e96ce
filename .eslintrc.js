@@ -1,23 +1,26 @@
 module.exports = {
   env: {
-    browser: true
+    browser: true,
   },
   parserOptions: {
     emcaFeatures: {
-      jsx: true
+      jsx: true,
     },
     emcaVersion: "latest",
-    sourceType: "module"
+    sourceType: "module",
   },
   settings: {
     react: {
-      version: "detect"
-    }
+      version: "detect",
+    },
   },
+  plugins: ["react"],
   ignorePatterns: ["node_modules/", "dist"],
   extends: ["semistandard", "eslint:recommended", "plugin:react/recommended"],
   rules: {
-    trailingComma: 0,
-    quotes: [2, "double"]
-  }
+    "comma-dangle": "off",
+    quotes: [2, "double"],
+    "react/prop-types": "off",
+    "space-before-function-paren": "off",
+  },
 };
