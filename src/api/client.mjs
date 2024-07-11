@@ -9,4 +9,8 @@ export const client = axios.create({
   baseURL: serverUrl,
   timeout: 10000,
   validateStatus: () => true,
+  responseType: "json",
+  headers: {
+    "Content-Type": "application/json",
+  },
 });
