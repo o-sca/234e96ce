@@ -11,3 +11,8 @@ export const activitySchema = z.object({
   id: z.string(),
   created_at: z.string().datetime(),
 });
+
+/**
+ * @typedef {z.infer<typeof activitySchema>} Activity
+ */
+export const Activity = activitySchema;

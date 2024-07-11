@@ -1,4 +1,3 @@
-import z from "zod";
 import { client } from "./client.mjs";
 import { activitySchema } from "./activity-schema.mjs";
 
@@ -16,9 +15,11 @@ export const getActivities = async () => {
 
     const parsed = data.map((activity) => {
       const result = activitySchema.safeParse(activity);
-      if (result.success) {
-        return result.data;
+      if (!result.success) {
+        console.error(result.error);
+        return null;
       }
+      return result.data;
     });
     return parsed;
   } catch (err) {
