@@ -9,7 +9,8 @@
   "private": false,
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.config.js --open",
-    "build": "webpack --config webpack.prod.config.js"
+    "build": "webpack --config webpack.prod.config.js",
+    "lint": "eslint --fix ."
   },
   "dependencies": {
     "axios": "^1.7.2",
@@ -31,6 +32,14 @@
     "css-loader": "^4.2.0",
     "cssnano": "^4.1.10",
     "cssnext": "^1.8.4",
+    "eslint": "^8.13.0",
+    "eslint-config-semistandard": "^17.0.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.34.3",
+    "globals": "^15.8.0",
     "html-webpack-plugin": "^4.3.0",
     "mini-css-extract-plugin": "^0.9.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",

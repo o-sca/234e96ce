@@ -16,12 +16,12 @@ module.exports = {
     port: 3000,
     open: false,
     hot: true,
-    quiet: false,
+    quiet: false
   },
   entry: "./src/index.js",
   output: {
     path: resolve("dist"),
-    filename: "scripts/[name].js",
+    filename: "scripts/[name].js"
   },
   resolve: {},
   module: {
@@ -29,14 +29,14 @@ module.exports = {
       { test: /\.js(|x)$/, loader: "babel-loader", exclude: /node_modules/ },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader", "postcss-loader"],
-      },
-    ],
+        use: ["style-loader", "css-loader", "postcss-loader"]
+      }
+    ]
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./public/index.html",
+      template: "./public/index.html"
     }),
-    new webpack.HotModuleReplacementPlugin({}),
-  ],
+    new webpack.HotModuleReplacementPlugin({})
+  ]
 };
