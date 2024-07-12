@@ -1,5 +1,6 @@
 import React from "react";
 import { IoMdArchive } from "react-icons/io";
+import ConfirmModal from "./confirm-modal.jsx";
 
 /** @param {{ onClick: () => void, disabled: boolean }} */
 export default function ArchiveAllButton({ onClick, disabled }) {
@@ -7,7 +8,7 @@ export default function ArchiveAllButton({ onClick, disabled }) {
     <>
       <label
         htmlFor="archive-all-modal"
-        className="mb-4 btn btn-sm btn-accent modal-button"
+        className="mb-2 btn btn-sm btn-accent modal-button"
         disabled={disabled}
       >
         <IoMdArchive className="mr-2 text-white" />
@@ -15,41 +16,12 @@ export default function ArchiveAllButton({ onClick, disabled }) {
           Archive All Calls
         </p>
       </label>
-      <input type="checkbox" id="archive-all-modal" className="modal-toggle" />
-      <div className="modal items-center justify-center">
-        <div className="modal-box w-64 text-center items-center justify-center rounded-lg">
-          <p className="text-sm">
-            This action will archive all calls. Are you sure you want to
-            proceed?
-          </p>
-          <div className="modal-action">
-            <label
-              htmlFor="archive-all-modal"
-              className="btn btn-sm btn-accent"
-              onClick={onClick}
-            >
-              Archive All
-            </label>
-            <label htmlFor="archive-all-modal" className="btn btn-sm">
-              Cancel
-            </label>
-          </div>
-        </div>
-      </div>
+      <ConfirmModal
+        onClick={onClick}
+        id="archive-all-modal"
+        warningText="This action will archive all calls. Are you sure you want to proceed?"
+        confirmText="Archive All"
+      />
     </>
   );
 }
-
-/**
- *
-    <button
-      className="mb-4 btn btn-sm btn-block btn-accent"
-      onClick={onClick}
-      disabled={disabled}
-    >
-      <IoMdArchive className="mr-2 text-white" />
-      <p className="items-center justify-center text-xs text-white font-thin">
-        Archive All Calls
-      </p>
-    </button>
-*/

@@ -3,15 +3,11 @@ import ActivityCard from "../components/activity-card.jsx";
 
 /** @typedef {Array<import("../api/activity-schema.mjs").Activity>} Activities */
 
-/** @param {{ activities: Activities; setActivities: import("react").useState<Activities>; setArchived: import("react").useState<Activities>  }} */
-export default function ActivityFeed({
-  activities,
-  setActivities,
-  setArchived,
-}) {
+/** @param {{ activities: Activities; setActivities: import("react").useState<Activities>  }} */
+export default function ArchivedFeed({ activities, setActivities }) {
   if (activities.length < 1) {
     return (
-      <p className="text-center text-gray-500 italic">No activities to show</p>
+      <p className="text-center text-gray-500 italic">No archives to show</p>
     );
   }
 
@@ -22,8 +18,7 @@ export default function ActivityFeed({
           key={activity.id}
           activity={activity}
           setActivities={setActivities}
-          setArchived={setArchived}
-          archiveButton={true}
+          archiveButton={false}
         />
       ))}
     </>

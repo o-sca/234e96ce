@@ -1,4 +1,5 @@
 import React from "react";
+import { BsThreeDotsVertical } from "react-icons/bs";
 
 const Header = () => {
   return (
@@ -41,9 +42,7 @@ const Header = () => {
           />
         </g>
       </svg>
-      <div className="col-start-3 flex items-center justify-center font-bold text-m">
-        Archived
-      </div>
+      <BsThreeDotsVertical className="w-6 h-6 col-start-4 col-span-1 ml-auto cursor-pointer" />
     </header>
   );
 };
