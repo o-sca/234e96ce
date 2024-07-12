@@ -55,6 +55,10 @@ module.exports = {
     }),
     new PurgeCSSPlugin({
       paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
+      content: [resolve("public/index.html")],
+      options: {
+        safelist: ["/data-theme$/"],
+      },
     }),
     new OptimizeCssAssetsPlugin(),
   ],
