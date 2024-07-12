@@ -117,11 +117,35 @@ function callDescription(direction, to, from) {
  * @param {string} createdAt
  */
 function showCallCreated(createdAt) {
-  const time = new Date(createdAt);
-  return time.toLocaleTimeString("en-US", {
-    timeStyle: "short",
-    hour12: true,
-  });
+  const calculateDaysSince = (createdAt) => {
+    const currentDate = new Date();
+    const createdDate = new Date(createdAt);
+    const differenceInTime = currentDate - createdDate;
+    const differenceInDays = Math.floor(differenceInTime / (1000 * 3600 * 24));
+    return differenceInDays;
+  };
+
+  const formatDate = (createdAt) => {
+    const daysSinceCreated = calculateDaysSince(createdAt);
+    const createdDate = new Date(createdAt);
+
+    if (daysSinceCreated === 0) {
+      return createdDate.toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true,
+      });
+    } else if (daysSinceCreated === 1) {
+      return "Yesterday";
+    } else {
+      return createdDate.toLocaleDateString("en-US", {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true,
+      });
+    }
+  };
+  return formatDate(createdAt);
 }
 
 /**
