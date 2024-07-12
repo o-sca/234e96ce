@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FiPhoneIncoming, FiPhoneOutgoing } from "react-icons/fi";
-import Avatar from "./avatar.jsx";
-import ConfirmModal from "./confirm-modal.jsx";
+import Avatar from "./avatar";
+import ConfirmModal from "./confirm-modal";
 import { archiveActivity } from "../api/index.mjs";
 import { toast } from "react-toastify";
 

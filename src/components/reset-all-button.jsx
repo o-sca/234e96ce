@@ -1,6 +1,6 @@
 import React from "react";
 import { MdUnarchive } from "react-icons/md";
-import ConfirmModal from "./confirm-modal.jsx";
+import ConfirmModal from "./confirm-modal";
 
 /** @param {{ onClick: () => void, disabled: boolean }} */
 export default function ResetAllButton({ onClick, disabled }) {

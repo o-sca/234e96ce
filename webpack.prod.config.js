@@ -9,16 +9,19 @@ const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const resolve = (filepath) => path.resolve(__dirname, filepath);
 
 const PATHS = {
-  src: path.join(__dirname, "src")
+  src: path.join(__dirname, "src"),
 };
 
 module.exports = {
+  mode: "production",
   entry: "./src/index.js",
   output: {
     path: resolve("dist"),
-    filename: "scripts/[name].js"
+    filename: "scripts/[name].js",
   },
-  mode: "production",
+  resolve: {
+    extensions: [".js", ".jsx"],
+  },
   module: {
     rules: [
       { test: /\.js(|x)$/, loader: "babel-loader", exclude: /node_modules/ },
@@ -27,32 +30,32 @@ module.exports = {
         use: [
           MiniPlugin.loader,
           { loader: "css-loader", options: { sourceMap: true } },
-          "postcss-loader"
-        ]
-      }
-    ]
+          "postcss-loader",
+        ],
+      },
+    ],
   },
   optimization: {
     minimize: true,
     minimizer: [
       new TerserPlugin({
         sourceMap: true,
-        extractComments: false
-      })
-    ]
+        extractComments: false,
+      }),
+    ],
   },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: "./public/index.html"
+      template: "./public/index.html",
     }),
     new MiniPlugin({
       filename: "css/[name].css",
-      chunkFilename: "css/[id].css"
+      chunkFilename: "css/[id].css",
     }),
     new PurgeCSSPlugin({
-      paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true })
+      paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
     }),
-    new OptimizeCssAssetsPlugin()
-  ]
+    new OptimizeCssAssetsPlugin(),
+  ],
 };

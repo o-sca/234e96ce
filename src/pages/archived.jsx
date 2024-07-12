@@ -1,5 +1,5 @@
 import React from "react";
-import ActivityCard from "../components/activity-card.jsx";
+import ActivityCard from "../components/activity-card";
 
 /** @typedef {Array<import("../api/activity-schema.mjs").Activity>} Activities */
 

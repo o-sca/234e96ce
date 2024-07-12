@@ -1,6 +1,6 @@
 import React from "react";
 import { IoMdArchive } from "react-icons/io";
-import ConfirmModal from "./confirm-modal.jsx";
+import ConfirmModal from "./confirm-modal";
 
 /** @param {{ onClick: () => void, disabled: boolean }} */
 export default function ArchiveAllButton({ onClick, disabled }) {
